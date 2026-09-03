@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<title>学习报告 · 学迹</title>
+<link href="assets/css/fonts.css" rel="stylesheet"/>
+<link href="assets/css/common.css" rel="stylesheet"/>
+<script src="assets/vendor/tailwind.js"></script>
+<script src="assets/js/theme.js"></script>
+</head>
+<body class="bg-surface-bg min-h-screen text-text-body">
+<!-- 家长报告页：免登录只读，不注入共享壳 -->
+
+<div class="share-page" id="page">
+  <!-- 头部 -->
+  <div class="bg-surface-card rounded-2xl text-center py-8 px-6 mb-4 border border-border-light">
+    <div class="w-12 h-12 mx-auto mb-3 rounded-xl bg-primary text-white flex items-center justify-center">
+      <span class="material-symbols-outlined fill">school</span>
+    </div>
+    <div class="text-label-sm text-text-muted mb-1">学迹 · 学习报告</div>
+    <h1 class="text-headline-md font-bold text-text-heading" id="stu-name">陈小明</h1>
+    <div class="text-label-md text-text-muted mt-1" id="stu-meta">初二 · 北京四中</div>
+    <div class="inline-block mt-3 text-label-sm text-primary bg-primary-light rounded-full px-3 py-1" id="period">2026-08-25 ~ 2026-08-31</div>
+  </div>
+
+  <!-- 概览 -->
+  <div class="grid grid-cols-3 gap-3 mb-4">
+    <div class="bg-surface-card rounded-2xl border border-border-light p-4 text-center">
+      <div class="text-headline-md font-bold text-primary" id="st-count">—</div>
+      <div class="text-label-sm text-text-secondary mt-1">上课次数</div>
+    </div>
+    <div class="bg-surface-card rounded-2xl border border-border-light p-4 text-center">
+      <div class="text-headline-md font-bold text-success-deep" id="st-rate">—</div>
+      <div class="text-label-sm text-text-secondary mt-1">作业完成率</div>
+    </div>
+    <div class="bg-surface-card rounded-2xl border border-border-light p-4 text-center">
+      <div class="text-headline-md font-bold text-text-heading" id="st-focus">—</div>
+      <div class="text-label-sm text-text-secondary mt-1">平均专注度</div>
+    </div>
+  </div>
+
+  <!-- 图表 -->
+  <div class="chart-wrap">
+    <div class="chart-title">专注度趋势</div>
+    <div id="c-line"></div>
+  </div>
+  <div class="chart-wrap">
+    <div class="chart-title">作业完成分布</div>
+    <div id="c-donut"></div>
+  </div>
+  <div class="chart-wrap">
+    <div class="chart-title">知识点掌握分布</div>
+    <div id="c-mastery"></div>
+  </div>
+
+  <!-- 老师寄语 -->
+  <div class="bg-primary-light rounded-2xl p-5 mb-4" id="message-box">
+    <div class="text-label-sm text-primary mb-2 font-medium">老师寄语</div>
+    <p class="text-body-sm text-text-body leading-relaxed" id="message"></p>
+  </div>
+
+  <!-- 学习记录 -->
+  <div class="mb-4">
+    <div class="text-label-sm text-text-secondary mb-2 font-semibold" id="records-title">学习记录</div>
+    <div id="records" class="space-y-3"></div>
+  </div>
+
+  <!-- 底部署名 -->
+  <div class="text-center text-label-sm text-text-placeholder pt-6 pb-4">
+    由 <span id="teacher-name">王老师</span> 通过「学迹」记录生成<br/>记录每一步成长
+  </div>
+</div>
+
+<script src="assets/js/mock-data.js"></script>
+<script src="assets/js/common.js"></script>
+<script src="assets/js/page-report-share.js"></script>
+</body>
+</html>

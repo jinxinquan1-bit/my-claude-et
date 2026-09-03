@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<title>学迹 · 报告管理</title>
+<link href="assets/css/fonts.css" rel="stylesheet"/>
+<link href="assets/css/common.css" rel="stylesheet"/>
+<script src="assets/vendor/tailwind.js"></script>
+<script src="assets/js/theme.js"></script>
+</head>
+<body class="bg-app-bg min-h-screen text-on-surface">
+<div data-shell="app" data-active="me"></div>
+
+<main class="md:ml-[260px] md:pt-16 pt-14 pb-24 md:pb-8 px-margin-mobile md:px-margin-desktop max-w-max-content-width mx-auto">
+  <div class="flex items-center justify-between py-6 md:py-8">
+    <h1 class="text-headline-xl font-bold text-text-heading">报告管理</h1>
+    <a href="report-create.html" class="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-primary hover:bg-primary-hover text-white text-body-sm font-medium transition-colors">
+      <span class="material-symbols-outlined text-[18px]">add</span>生成新报告
+    </a>
+  </div>
+
+  <div id="report-list" class="space-y-4"></div>
+</main>
+
+<script src="assets/js/mock-data.js"></script>
+<script src="assets/js/common.js"></script>
+<script src="assets/js/page-reports.js"></script>
+</body>
+</html>

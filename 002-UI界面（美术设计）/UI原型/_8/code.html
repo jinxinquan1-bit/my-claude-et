@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+
+<html lang="zh"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>学迹 - 登录</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary": "#0051d5",
+                        "on-primary-fixed": "#001a42",
+                        "text-secondary": "#6B7280",
+                        "tertiary": "#3452c1",
+                        "error": "#ba1a1a",
+                        "text-placeholder": "#9CA3AF",
+                        "warning-bg": "#FFFBEB",
+                        "mastery-unmastered": "#60A5FA",
+                        "primary-fixed-dim": "#adc6ff",
+                        "on-primary-fixed-variant": "#004395",
+                        "border-active": "#BFDBFE",
+                        "secondary-container": "#316bf3",
+                        "text-body": "#374151",
+                        "primary-fixed": "#d8e2ff",
+                        "warning": "#F59E0B",
+                        "on-primary-container": "#fefcff",
+                        "on-secondary-fixed": "#00174b",
+                        "tertiary-container": "#506cdb",
+                        "background": "#f8f9ff",
+                        "on-tertiary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "surface-variant": "#d3e4fe",
+                        "outline-variant": "#c2c6d6",
+                        "on-secondary-fixed-variant": "#003ea8",
+                        "surface-bg": "#F5F7FA",
+                        "danger-bg": "#FEF2F2",
+                        "on-surface": "#0b1c30",
+                        "on-background": "#0b1c30",
+                        "surface-bright": "#f8f9ff",
+                        "danger": "#EF4444",
+                        "tertiary-fixed": "#dde1ff",
+                        "border-standard": "#E5E7EB",
+                        "on-primary": "#ffffff",
+                        "surface-container-highest": "#d3e4fe",
+                        "surface-container-low": "#eff4ff",
+                        "success-bg": "#F0FDF4",
+                        "on-surface-variant": "#424754",
+                        "inverse-surface": "#213145",
+                        "on-secondary-container": "#fefcff",
+                        "on-tertiary-container": "#fffbff",
+                        "on-secondary": "#ffffff",
+                        "on-error": "#ffffff",
+                        "outline": "#727785",
+                        "inverse-on-surface": "#eaf1ff",
+                        "tertiary-fixed-dim": "#b8c4ff",
+                        "secondary-fixed-dim": "#b4c5ff",
+                        "surface": "#f8f9ff",
+                        "primary": "#0058be",
+                        "secondary-fixed": "#dbe1ff",
+                        "surface-card": "#FFFFFF",
+                        "inverse-primary": "#adc6ff",
+                        "surface-container-high": "#dce9ff",
+                        "surface-container": "#e5eeff",
+                        "surface-dim": "#cbdbf5",
+                        "surface-container-lowest": "#ffffff",
+                        "primary-container": "#2170e4",
+                        "success": "#22C55E",
+                        "on-tertiary-fixed-variant": "#173bab",
+                        "surface-tint": "#005ac2",
+                        "on-tertiary-fixed": "#001453",
+                        "text-heading": "#111827",
+                        "on-error-container": "#93000a"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "base": "16px",
+                        "margin-mobile": "16px",
+                        "xtight": "4px",
+                        "tight": "8px",
+                        "loose": "24px",
+                        "margin-desktop": "32px",
+                        "gutter": "16px"
+                    },
+                    "fontFamily": {
+                        "label-sm": ["Inter"],
+                        "body-md": ["Inter"],
+                        "label-md": ["Inter"],
+                        "input-text": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "headline-sm": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.03em", "fontWeight": "500" }],
+                        "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500" }],
+                        "input-text": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-lg": ["24px", { "lineHeight": "32px", "fontWeight": "700" }],
+                        "headline-sm": ["18px", { "lineHeight": "24px", "fontWeight": "600" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-md": ["20px", { "lineHeight": "28px", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+        /* Mobile optimization for form fields */
+        input {
+            font-size: 16px !important; 
+        }
+        
+        .bg-gradient-custom {
+            background: linear-gradient(135deg, #eff4ff 0%, #dce9ff 50%, #b8c4ff 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .bg-gradient-custom::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at center, rgba(255,255,255,0.4) 0%, transparent 60%);
+            z-index: 0;
+            animation: rotate 60s linear infinite;
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            box-shadow: 0 10px 40px -10px rgba(0, 88, 190, 0.15), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            z-index: 10;
+            position: relative;
+        }
+        
+        input {
+            background: rgba(255, 255, 255, 0.8) !important;
+            transition: all 0.3s ease;
+        }
+
+        /* Focus ring for accessibility and design */
+        input:focus {
+            outline: none;
+            border-color: #0058be !important;
+            box-shadow: 0 0 0 4px rgba(0, 88, 190, 0.15) !important;
+            background: #ffffff !important;
+        }
+        
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+<body class="bg-gradient-custom flex flex-col min-h-screen text-on-surface">
+<!-- Suppressed TopAppBar and BottomNavBar as this is a transactional Login page -->
+<main class="flex-grow flex flex-col justify-center items-center px-margin-mobile py-loose relative">
+<!-- Abstract geometric shapes for background interest -->
+<div class="absolute top-10 right-[-10%] w-64 h-64 bg-primary/10 rounded-full blur-3xl z-0 pointer-events-none"></div>
+<div class="absolute bottom-20 left-[-10%] w-72 h-72 bg-tertiary-container/15 rounded-full blur-3xl z-0 pointer-events-none"></div>
+<!-- Brand / Logo Area -->
+<div class="mb-8 flex flex-col items-center z-10">
+<div class="w-20 h-20 bg-gradient-to-br from-primary to-tertiary text-on-primary rounded-2xl flex items-center justify-center mb-4 shadow-lg shadow-primary/30 transform hover:scale-105 transition-transform duration-300">
+<span class="material-symbols-outlined text-5xl" style="font-variation-settings: 'FILL' 1;">
+                    school
+                </span>
+</div>
+<h1 class="font-headline-lg text-3xl font-bold text-text-heading tracking-tight drop-shadow-sm">学迹</h1>
+<p class="font-body-md text-base text-text-secondary mt-2 tracking-wide">记录每一次进步</p>
+</div>
+<!-- Login Card -->
+<div class="glass-card w-full max-w-sm rounded-2xl p-6 md:p-8">
+<form action="#" class="space-y-5" method="POST">
+<!-- Username Input -->
+<div>
+<label class="block font-label-md text-sm font-semibold text-text-heading mb-2" for="username">用户名 / 邮箱</label>
+<div class="relative">
+<div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-text-placeholder text-xl">
+                                person
+                            </span>
+</div>
+<input class="block w-full pl-11 pr-4 py-3 border border-outline-variant/60 rounded-xl font-input-text text-input-text text-on-surface placeholder-text-placeholder/70" id="username" name="username" placeholder="请输入用户名" required="" type="text"/>
+</div>
+</div>
+<!-- Password Input -->
+<div>
+<div class="flex justify-between items-center mb-2">
+<label class="block font-label-md text-sm font-semibold text-text-heading" for="password">密码</label>
+<a class="font-label-md text-sm font-medium text-primary hover:text-secondary transition-colors" href="#">忘记密码？</a>
+</div>
+<div class="relative">
+<div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-text-placeholder text-xl">
+                                lock
+                            </span>
+</div>
+<input class="block w-full pl-11 pr-11 py-3 border border-outline-variant/60 rounded-xl font-input-text text-input-text text-on-surface placeholder-text-placeholder/70" id="password" name="password" placeholder="请输入密码" required="" type="password"/>
+<!-- Optional Toggle Visibility Icon -->
+<div class="absolute inset-y-0 right-0 pr-3.5 flex items-center cursor-pointer text-text-placeholder hover:text-text-body transition-colors">
+<span class="material-symbols-outlined text-xl">
+                                visibility_off
+                            </span>
+</div>
+</div>
+</div>
+<!-- Login Button -->
+<button class="w-full flex justify-center items-center py-3.5 px-4 border border-transparent rounded-xl shadow-md shadow-primary/20 text-on-primary bg-primary hover:bg-secondary focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-container font-headline-sm text-lg font-semibold transition-all duration-200 active:scale-[0.98] mt-8" type="submit">
+                    登录
+                </button>
+</form>
+<!-- Registration Link -->
+<div class="mt-8 text-center border-t border-standard/50 pt-6">
+<p class="font-body-md text-body-md text-text-secondary">
+                    还没有账号？ 
+                    <a class="font-headline-sm text-base font-semibold text-primary hover:text-secondary transition-colors ml-1" href="#">立即注册</a>
+</p>
+</div>
+</div>
+</main>
+<script>
+        // Simple script to handle password visibility toggle (UI only)
+        document.addEventListener('DOMContentLoaded', () => {
+            const togglePassword = document.querySelector('.material-symbols-outlined.text-xl.visibility_off');
+            const passwordInput = document.getElementById('password');
+
+            if(togglePassword && passwordInput) {
+                togglePassword.parentElement.addEventListener('click', function (e) {
+                    // toggle the type attribute
+                    const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+                    passwordInput.setAttribute('type', type);
+                    // toggle the icon
+                    this.querySelector('span').textContent = type === 'password' ? 'visibility_off' : 'visibility';
+                });
+            }
+        });
+    </script>
+</body></html>

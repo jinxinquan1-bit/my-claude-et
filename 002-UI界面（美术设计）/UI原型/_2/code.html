@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>辅导管理系统 - 学生详情</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-primary-fixed": "#001a42",
+                    "surface-bright": "#f9f9ff",
+                    "tertiary": "#924700",
+                    "inverse-on-surface": "#eff0fa",
+                    "on-secondary-fixed": "#111c2d",
+                    "on-secondary-container": "#586377",
+                    "on-error": "#ffffff",
+                    "inverse-surface": "#2e3038",
+                    "outline": "#727785",
+                    "on-tertiary-fixed": "#311400",
+                    "on-secondary-fixed-variant": "#3c475a",
+                    "text-muted": "#64748B",
+                    "surface-tint": "#005ac2",
+                    "background": "#f9f9ff",
+                    "on-tertiary-container": "#fffbff",
+                    "primary-fixed-dim": "#adc6ff",
+                    "surface-container-highest": "#e1e2ec",
+                    "error-container": "#ffdad6",
+                    "primary": "#0058be",
+                    "primary-fixed": "#d8e2ff",
+                    "on-primary": "#ffffff",
+                    "on-surface": "#191b23",
+                    "on-tertiary-fixed-variant": "#723600",
+                    "secondary": "#545f73",
+                    "secondary-fixed-dim": "#bcc7de",
+                    "text-main": "#0F172A",
+                    "on-tertiary": "#ffffff",
+                    "surface-variant": "#e1e2ec",
+                    "surface-container-high": "#e6e7f2",
+                    "card-white": "#FFFFFF",
+                    "surface-container-low": "#f2f3fd",
+                    "error": "#ba1a1a",
+                    "on-background": "#191b23",
+                    "surface-dim": "#d8d9e3",
+                    "on-primary-fixed-variant": "#004395",
+                    "border-light": "#E2E8F0",
+                    "surface": "#f9f9ff",
+                    "on-error-container": "#93000a",
+                    "surface-container-lowest": "#ffffff",
+                    "outline-variant": "#c2c6d6",
+                    "on-primary-container": "#fefcff",
+                    "on-surface-variant": "#424754",
+                    "secondary-fixed": "#d8e3fb",
+                    "secondary-container": "#d5e0f8",
+                    "tertiary-fixed-dim": "#ffb786",
+                    "app-bg": "#F8FAFC",
+                    "periwinkle-subtle": "#EEF2F6",
+                    "inverse-primary": "#adc6ff",
+                    "on-secondary": "#ffffff",
+                    "tertiary-fixed": "#ffdcc6",
+                    "primary-container": "#2170e4",
+                    "surface-container": "#ecedf7",
+                    "tertiary-container": "#b75b00"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', "Noto Sans SC", sans-serif; }
+    </style>
+</head>
+<body class="bg-app-bg text-on-surface">
+<div class="relative flex h-auto min-h-screen w-full flex-col bg-background group/design-root overflow-x-hidden">
+<div class="layout-container flex h-full grow flex-col">
+<!-- Shared Header -->
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-outline-variant px-10 py-3 bg-surface-container-lowest">
+<div class="flex items-center gap-4 text-on-surface">
+<div class="size-6 text-primary">
+<svg fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M39.5563 34.1455V13.8546C39.5563 15.708 36.8773 17.3437 32.7927 18.3189C30.2914 18.916 27.263 19.2655 24 19.2655C20.737 19.2655 17.7086 18.916 15.2073 18.3189C11.1227 17.3437 8.44365 15.708 8.44365 13.8546V34.1455C8.44365 35.9988 11.1227 37.6346 15.2073 38.6098C17.7086 39.2069 20.737 39.5564 24 39.5564C27.1288 39.5564 30.2914 39.2069 32.7927 38.6098C36.8773 37.6346 39.5563 35.9988 39.5563 34.1455Z" fill="currentColor"></path>
+<path clip-rule="evenodd" d="M10.4485 13.8519C10.4749 13.9271 10.6203 14.246 11.379 14.7361C12.298 15.3298 13.7492 15.9145 15.6717 16.3735C18.0007 16.9296 20.8712 17.2655 24 17.2655C27.1288 17.2655 29.9993 16.9296 32.3283 16.3735C34.2508 15.9145 35.702 15.3298 36.621 14.7361C37.3796 14.246 37.5251 13.9271 37.5515 13.8519C37.5287 13.7876 37.4333 13.5973 37.0635 13.2931C36.5266 12.8516 35.6288 12.3647 34.343 11.9175C31.79 11.0295 28.1333 10.4437 24 10.4437C19.8667 10.4437 16.2099 11.0295 13.657 11.9175C12.3712 12.3647 11.4734 12.8516 10.9365 13.2931C10.5667 13.5973 10.4713 13.7876 10.4485 13.8519ZM37.5563 18.7877C36.3176 19.3925 34.8502 19.8839 33.2571 20.2642C30.5836 20.9025 27.3973 21.2655 24 21.2655C20.6027 21.2655 17.4164 20.9025 14.7429 20.2642C13.1498 19.8839 11.6824 19.3925 10.4436 18.7877V34.1275C10.4515 34.1545 10.5427 34.4867 11.379 35.027C12.298 35.6207 13.7492 36.2054 15.6717 36.6644C18.0007 37.2205 20.8712 37.5564 24 37.5564C27.1288 37.5564 29.9993 37.2205 32.3283 36.6644C34.2508 36.2054 35.702 35.6207 36.621 35.027C37.4573 34.4867 37.5485 34.1546 37.5563 34.1275V18.7877ZM41.5563 13.8546V34.1455C41.5563 36.1078 40.158 37.5042 38.7915 38.3869C37.3498 39.3182 35.4192 40.0389 33.2571 40.5551C30.5836 41.1934 27.3973 41.5564 24 41.5564C20.6027 41.5564 17.4164 41.1934 14.7429 40.5551C12.5808 40.0389 10.6502 39.3182 9.20848 38.3869C7.84205 37.5042 6.44365 36.1078 6.44365 34.1455L6.44365 13.8546C6.44365 12.2684 7.37223 11.0454 8.39581 10.2036C9.43325 9.3505 10.8137 8.67141 12.343 8.13948C15.4203 7.06909 19.5418 6.44366 24 6.44366C28.4582 6.44366 32.5797 7.06909 35.657 8.13948C37.1863 8.67141 38.5667 9.3505 39.6042 10.2036C40.6278 11.0454 41.5563 12.2684 41.5563 13.8546Z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+<h2 class="text-on-surface text-lg font-bold leading-tight tracking-[-0.015em]">辅导管理系统</h2>
+</div>
+<div class="flex flex-1 justify-end gap-8">
+<label class="flex flex-col min-w-40 !h-10 max-w-64">
+<div class="flex w-full flex-1 items-stretch rounded-lg h-full">
+<div class="text-on-secondary-container flex border-none bg-surface-container items-center justify-center pl-4 rounded-l-lg" data-icon="search" data-size="24px" data-weight="regular">
+<span class="material-symbols-outlined">search</span>
+</div>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-on-surface focus:outline-0 focus:ring-0 border-none bg-surface-container focus:border-none h-full placeholder:text-on-secondary-container px-4 rounded-l-none pl-2 text-base font-normal" placeholder="搜索学生或课程" value=""/>
+</div>
+</label>
+<div class="flex gap-2">
+<button class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 bg-surface-container text-on-surface gap-2 text-sm font-bold min-w-0 px-2.5">
+<span class="material-symbols-outlined" style="font-size: 20px;">notifications</span>
+</button>
+<button class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 bg-surface-container text-on-surface gap-2 text-sm font-bold min-w-0 px-2.5">
+<span class="material-symbols-outlined" style="font-size: 20px;">settings</span>
+</button>
+</div>
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10 border border-outline-variant" data-alt="A professional headshot of a teacher wearing business casual attire, smiling warmly against a blurred educational office background. High-key lighting and soft shadows create a trustworthy and modern pedagogical aesthetic." style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuA2kUrJhfjFYHEEqCrbo98epQ3Qspkoxt9fXwS2ZTSGcJRHrWcxM1TH1CWMioBIJNa7agrl5NkgwA2wkQWtEdz5reKPRQqGcDrWptsaS2BTrncMQfxe9yYJQYdG-j1izkhY1_4dy-0WWUcZZllfykZeXtB16ov4AlMKUuehEk1SqpuJfyAQImYmVPGN7Dwexy6slj-68M8CL9wR4KERQS7fr8IGn66mJBZiuObRqUE3QbBwI8K7aLE");'></div>
+</div>
+</header>
+<div class="flex flex-1">
+<!-- Sidebar Navigation -->
+<aside class="w-64 border-r border-outline-variant bg-surface-container-lowest p-4 flex flex-col gap-6">
+<div class="flex flex-col">
+<h1 class="text-on-surface text-base font-medium leading-normal">教育助手</h1>
+<p class="text-on-secondary-container text-sm font-normal">教师版</p>
+</div>
+<nav class="flex flex-col gap-1">
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-surface-container text-on-surface" href="#">
+<span class="material-symbols-outlined">home</span>
+<p class="text-sm font-medium">主页</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg bg-secondary-container text-on-secondary-container" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">group</span>
+<p class="text-sm font-medium">学生详情</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-surface-container text-on-surface" href="#">
+<span class="material-symbols-outlined">calendar_today</span>
+<p class="text-sm font-medium">课程表</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-surface-container text-on-surface" href="#">
+<span class="material-symbols-outlined">account_circle</span>
+<p class="text-sm font-medium">个人中心</p>
+</a>
+</nav>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 p-8 overflow-y-auto">
+<div class="max-w-[1200px] mx-auto flex flex-col gap-8">
+<!-- Profile Header -->
+<div class="flex flex-col gap-6 md:flex-row md:items-center md:justify-between bg-surface-container-lowest p-6 rounded-xl border border-outline-variant shadow-sm">
+<div class="flex gap-6 items-center">
+<div class="aspect-square w-32 h-32 rounded-full bg-cover bg-center border-4 border-secondary-container" data-alt="A portrait of a polite 14-year-old student with glasses, smiling confidently. He is dressed in a school uniform, set against a clean, minimal school hallway. The lighting is natural and bright, conveying a diligent and bright academic atmosphere." style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuD2s5zCTqN6oPnSTXr3_sUB04FaPnMQb3rGEbTOHCV9iZ3hcCAVursOYejcpEJhFIVmUsRZJ5cpOtapNckuAJHplsccsJFwliDB_CwfXvYyiKjfIonpHSM0byj-oyEgYRw-0gu8eNVCFjbEu9iC5iudW-HwPxrLGkFLtdVfVvhI1Y-fZZ4i1n3k5DiCuJubU1fh48lMesseBfjTN2uwamMtbpIScDoOpRWFdvADyzof-W-h4RO0BvY");'></div>
+<div class="flex flex-col">
+<h1 class="text-on-surface text-3xl font-bold tracking-tight">李明远</h1>
+<div class="flex items-center gap-2 mt-1">
+<span class="px-2 py-0.5 rounded bg-primary-fixed text-on-primary-fixed-variant text-xs font-semibold">初二</span>
+<p class="text-on-secondary-container text-base">北京四中</p>
+</div>
+<div class="flex gap-2 mt-3">
+<span class="text-xs px-2 py-1 rounded-full bg-surface-container text-on-surface-variant font-medium border border-outline-variant">善于分析</span>
+<span class="text-xs px-2 py-1 rounded-full bg-surface-container text-on-surface-variant font-medium border border-outline-variant">需控制进度</span>
+</div>
+</div>
+</div>
+<div class="flex gap-3">
+<button class="flex items-center justify-center rounded-lg h-11 px-6 bg-surface-container text-on-surface text-sm font-bold border border-outline-variant hover:bg-surface-variant transition-colors">
+<span>记一笔</span>
+</button>
+<button class="flex items-center justify-center rounded-lg h-11 px-6 bg-primary text-on-primary text-sm font-bold shadow-md hover:opacity-90 transition-opacity">
+<span>生成报告</span>
+</button>
+</div>
+</div>
+<!-- Statistics Grid -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="bg-surface-container-lowest p-6 rounded-xl border border-outline-variant shadow-sm flex flex-col gap-1">
+<p class="text-on-secondary-container text-sm font-medium">本月课时</p>
+<div class="flex items-end gap-2">
+<span class="text-3xl font-bold text-on-surface">24小时</span>
+<span class="text-emerald-600 text-sm font-bold mb-1">+15% 较上月</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-xl border border-outline-variant shadow-sm flex flex-col gap-1">
+<p class="text-on-secondary-container text-sm font-medium">作业完成率</p>
+<div class="flex items-end gap-2">
+<span class="text-3xl font-bold text-on-surface">95%</span>
+<span class="text-emerald-600 text-sm font-bold mb-1">+2% 较上月</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-xl border border-outline-variant shadow-sm flex flex-col gap-1">
+<p class="text-on-secondary-container text-sm font-medium">当前重点</p>
+<p class="text-lg font-semibold text-primary truncate">高等代数，物理力学</p>
+</div>
+</div>
+<!-- Main Sections Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+<!-- Left: Records & Growth -->
+<div class="lg:col-span-2 flex flex-col gap-8">
+<!-- Growth Chart -->
+<section class="bg-surface-container-lowest p-6 rounded-xl border border-outline-variant shadow-sm">
+<div class="flex items-center justify-between mb-6">
+<div>
+<h3 class="text-on-surface text-lg font-bold">成长趋势</h3>
+<p class="text-on-secondary-container text-sm">物理学科保持持续上升趋势。</p>
+</div>
+<div class="flex items-center gap-1 text-emerald-600 bg-emerald-50 px-2 py-1 rounded-full text-xs font-bold">
+<span class="material-symbols-outlined" style="font-size: 14px;">trending_up</span>
+<span>+8%</span>
+</div>
+</div>
+<div class="h-64 w-full bg-surface-container-low rounded-lg overflow-hidden relative">
+<!-- Simplified Graph visualization -->
+<svg class="w-full h-full p-4" viewbox="0 0 500 200">
+<defs>
+<lineargradient id="chartGradient" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="#2170e4" stop-opacity="0.2"></stop>
+<stop offset="100%" stop-color="#2170e4" stop-opacity="0"></stop>
+</lineargradient>
+</defs>
+<path d="M0,150 Q50,140 100,100 T200,80 T300,50 T400,60 T500,20 V200 H0 Z" fill="url(#chartGradient)"></path>
+<path d="M0,150 Q50,140 100,100 T200,80 T300,50 T400,60 T500,20" fill="none" stroke="#2170e4" stroke-width="3"></path>
+<circle cx="500" cy="20" fill="#2170e4" r="4"></circle>
+</svg>
+<div class="flex justify-between px-6 pb-2 text-xs font-bold text-on-secondary-container uppercase tracking-wider">
+<span>1月</span><span>2月</span><span>3月</span><span>4月</span><span>5月</span><span>6月</span>
+</div>
+</div>
+</section>
+<!-- Learning Records -->
+<section class="bg-surface-container-lowest rounded-xl border border-outline-variant shadow-sm overflow-hidden">
+<div class="p-6 border-b border-outline-variant flex items-center justify-between">
+<h3 class="text-on-surface text-lg font-bold">学习记录</h3>
+<button class="text-primary text-sm font-bold hover:underline">查看全部</button>
+</div>
+<div class="divide-y divide-outline-variant">
+<div class="p-4 flex items-center justify-between hover:bg-surface-container-low transition-colors">
+<div class="flex items-center gap-4">
+<div class="size-10 rounded-lg bg-primary-fixed flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">devices_fold</span>
+</div>
+<div>
+<p class="text-on-surface font-semibold">物理：运动学复习</p>
+<p class="text-on-secondary-container text-xs">2023年10月24日 · 1.5小时</p>
+</div>
+</div>
+<div class="text-right">
+<p class="text-xs text-on-secondary-container font-medium">专注度评分</p>
+<p class="text-primary font-bold">A+</p>
+</div>
+</div>
+<div class="p-4 flex items-center justify-between hover:bg-surface-container-low transition-colors">
+<div class="flex items-center gap-4">
+<div class="size-10 rounded-lg bg-orange-100 flex items-center justify-center text-orange-600">
+<span class="material-symbols-outlined">calculate</span>
+</div>
+<div>
+<p class="text-on-surface font-semibold">数学：一元二次方程</p>
+<p class="text-on-secondary-container text-xs">2023年10月22日 · 2小时</p>
+</div>
+</div>
+<div class="text-right">
+<p class="text-xs text-on-secondary-container font-medium">专注度评分</p>
+<p class="text-on-surface font-bold">B</p>
+</div>
+</div>
+<div class="p-4 flex items-center justify-between hover:bg-surface-container-low transition-colors">
+<div class="flex items-center gap-4">
+<div class="size-10 rounded-lg bg-green-100 flex items-center justify-center text-green-600">
+<span class="material-symbols-outlined">task_alt</span>
+</div>
+<div>
+<p class="text-on-surface font-semibold">作业检查：第四周</p>
+<p class="text-on-secondary-container text-xs">2023年10月20日 · 0.5小时</p>
+</div>
+</div>
+<div class="text-right">
+<p class="text-xs text-on-secondary-container font-medium">结果</p>
+<p class="text-green-600 font-bold">全部完成</p>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Right Sidebar: Details & Actions -->
+<div class="flex flex-col gap-8">
+<!-- Contact Details -->
+<section class="bg-surface-container-lowest p-6 rounded-xl border border-outline-variant shadow-sm">
+<h3 class="text-on-surface text-lg font-bold mb-4">详细信息</h3>
+<div class="flex flex-col gap-4">
+<div>
+<p class="text-xs font-bold text-on-secondary-container uppercase mb-1">家长邮箱</p>
+<p class="text-on-surface text-sm break-all">parent.li@example.com</p>
+</div>
+<div>
+<p class="text-xs font-bold text-on-secondary-container uppercase mb-1">家长电话</p>
+<p class="text-on-surface text-sm">+86 138-0000-0000</p>
+</div>
+<div class="pt-4 mt-2 border-t border-outline-variant">
+<button class="w-full py-2 text-primary font-bold text-sm border border-primary rounded-lg hover:bg-primary-fixed transition-colors">
+                                            编辑信息
+                                        </button>
+</div>
+</div>
+</section>
+<!-- Tasks / Actions -->
+<section class="bg-error-container p-6 rounded-xl border border-error/20 shadow-sm">
+<div class="flex items-center gap-2 mb-4 text-on-error-container">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">error</span>
+<h3 class="text-lg font-bold">需要跟进</h3>
+</div>
+<ul class="flex flex-col gap-3">
+<li class="flex gap-3 bg-surface-container-lowest/50 p-3 rounded-lg">
+<input class="mt-1 rounded text-primary focus:ring-primary border-outline-variant" type="checkbox"/>
+<p class="text-sm text-on-error-container">准备下周一的模拟考卷</p>
+</li>
+<li class="flex gap-3 bg-surface-container-lowest/50 p-3 rounded-lg">
+<input class="mt-1 rounded text-primary focus:ring-primary border-outline-variant" type="checkbox"/>
+<p class="text-sm text-on-error-container">与家长沟通物理公式掌握情况</p>
+</li>
+<li class="flex gap-3 bg-surface-container-lowest/50 p-3 rounded-lg">
+<input class="mt-1 rounded text-primary focus:ring-primary border-outline-variant" type="checkbox"/>
+<p class="text-sm text-on-error-container">查看二次函数错误集</p>
+</li>
+</ul>
+</section>
+<!-- Quick Tool -->
+<section class="bg-primary p-6 rounded-xl shadow-lg relative overflow-hidden group">
+<webgl-shader class="absolute inset-0 opacity-20 pointer-events-none" src="{{DATA:ANIMATION:ANIMATION_1}}"></webgl-shader>
+<div class="relative z-10">
+<h4 class="text-on-primary font-bold text-lg">AI 智能辅助</h4>
+<p class="text-on-primary/80 text-sm mt-1">快速生成个性化练习题库</p>
+<button class="mt-4 bg-white text-primary px-4 py-2 rounded-lg text-sm font-bold shadow-sm hover:bg-primary-fixed transition-colors">
+                                        立即开启
+                                    </button>
+</div>
+</section>
+</div>
+</div>
+</div>
+</main>
+</div>
+</div>
+</div>
+<script>
+    // Simple micro-interaction for interactive states
+    document.querySelectorAll('button, a').forEach(elem => {
+        elem.addEventListener('mousedown', () => {
+            elem.style.transform = 'scale(0.98)';
+        });
+        elem.addEventListener('mouseup', () => {
+            elem.style.transform = 'scale(1)';
+        });
+        elem.addEventListener('mouseleave', () => {
+            elem.style.transform = 'scale(1)';
+        });
+    });
+</script>
+</body></html>

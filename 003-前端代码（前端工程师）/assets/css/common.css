@@ -1,0 +1,173 @@
+/* 学迹公共自定义样式：Tailwind 之外的自定义类，PRD 第 6 章风格 */
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  font-family: 'Inter', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', system-ui, sans-serif;
+}
+
+/* ---------- 移动端安全区 / 点按反馈 ---------- */
+.pb-safe { padding-bottom: env(safe-area-inset-bottom); }
+.tap-highlight { -webkit-tap-highlight-color: transparent; }
+
+/* ---------- 登录页：渐变背景 + 毛玻璃卡片（原 _8 设计） ---------- */
+.bg-gradient-custom {
+  background: linear-gradient(135deg, #EFF6FF 0%, #DBEAFE 35%, #BFDBFE 70%, #93C5FD 100%);
+  background-size: 200% 200%;
+  animation: gradient-shift 12s ease infinite;
+}
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+.glass-card {
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+/* ---------- 首字母头像（替代外部图片依赖，零图片资源） ---------- */
+.avatar-initial {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  color: #FFFFFF;
+  background: linear-gradient(135deg, #60A5FA 0%, #2563EB 100%);
+  user-select: none;
+  flex: none;
+}
+.avatar-initial.gray {
+  background: linear-gradient(135deg, #94A3B8 0%, #64748B 100%);
+}
+
+/* ---------- Toast 提示 ---------- */
+.toast {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 80;
+  background: rgba(17, 24, 39, .92);
+  color: #FFFFFF;
+  font-size: 14px;
+  padding: 10px 18px;
+  border-radius: 999px;
+  max-width: 80vw;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, .15);
+  animation: toast-in .2s ease;
+  pointer-events: none;
+}
+.toast.success { background: rgba(21, 128, 61, .95); }
+.toast.error { background: rgba(153, 27, 27, .95); }
+@keyframes toast-in {
+  from { opacity: 0; transform: translate(-50%, -8px); }
+  to { opacity: 1; transform: translate(-50%, 0); }
+}
+
+/* ---------- 弹窗 ---------- */
+.dialog-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 70;
+  background: rgba(17, 24, 39, .45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px;
+}
+.dialog {
+  background: #FFFFFF;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 340px;
+  padding: 20px;
+  text-align: center;
+  animation: toast-in .15s ease;
+}
+.dialog .dialog-title { font-size: 16px; font-weight: 600; color: #111827; margin-bottom: 8px; }
+.dialog .dialog-msg { font-size: 14px; color: #6B7280; margin-bottom: 16px; white-space: pre-line; }
+.dialog .dialog-btns { display: flex; gap: 10px; }
+.dialog .dialog-btns button { flex: 1; }
+
+/* ---------- 保存中遮罩（记一笔演示态） ---------- */
+.loading-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  background: rgba(255, 255, 255, .7);
+  backdrop-filter: blur(2px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  color: #2563EB;
+  font-size: 14px;
+}
+.spinner {
+  width: 36px;
+  height: 36px;
+  border: 3px solid #BFDBFE;
+  border-top-color: #3B82F6;
+  border-radius: 50%;
+  animation: spin .8s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ---------- 表单错误态 ---------- */
+.form-error { border-color: #EF4444 !important; }
+.form-error:focus { box-shadow: 0 0 0 3px #FEF2F2 !important; }
+.error-banner {
+  background: #FEF2F2;
+  border: 1px solid #FECACA;
+  color: #B91C1C;
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: 13px;
+  margin-bottom: 16px;
+}
+
+/* ---------- 星级（可交互） ---------- */
+.stars { display: inline-flex; gap: 6px; }
+.stars button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 2px;
+  -webkit-tap-highlight-color: transparent;
+}
+.stars .material-symbols-outlined { font-size: 30px; }
+.stars button.on .material-symbols-outlined { color: #3B82F6; }
+.stars button.off .material-symbols-outlined { color: #E5E7EB; }
+
+/* ---------- 图表容器 ---------- */
+.chart-wrap {
+  background: #FFFFFF;
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 16px;
+  border: 1px solid #E5E7EB;
+}
+.chart-title { font-size: 14px; font-weight: 600; color: #111827; margin-bottom: 10px; }
+.legend { display: flex; gap: 12px; flex-wrap: wrap; font-size: 12px; color: #6B7280; margin-top: 8px; }
+.legend i { display: inline-block; width: 10px; height: 10px; border-radius: 3px; margin-right: 4px; vertical-align: -1px; }
+
+/* ---------- 家长报告页 ---------- */
+.share-page {
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 16px 16px 32px;
+  min-height: 100vh;
+}
+
+/* ---------- 记一笔：分段控件与标签 chips 选中态（语义色） ---------- */
+.seg-btn { background: transparent; border: 1px solid transparent; color: #374151; }
+.seg-btn.on { background: #FFFFFF; box-shadow: 0 1px 2px rgb(0 0 0 / .08); font-weight: 500; }
+.seg-btn.on[data-v='done'] { background: #F0FDF4; border-color: #22C55E; color: #15803D; box-shadow: none; }
+.seg-btn.on[data-v='partial'] { background: #FFFBEB; border-color: #F59E0B; color: #B45309; box-shadow: none; }
+.seg-btn.on[data-v='undone'] { background: #FEF2F2; border-color: #EF4444; color: #DC2626; box-shadow: none; }
+.seg-btn.on[data-v='none'] { background: #F1F5F9; border-color: #64748B; color: #475569; box-shadow: none; }
+.chip-btn { background: #FFFFFF; }
+.chip-btn.on { background: #EFF6FF; border-color: #3B82F6; color: #1D4ED8; }

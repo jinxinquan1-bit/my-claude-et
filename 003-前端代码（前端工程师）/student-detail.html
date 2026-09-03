@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<title>学迹 · 学生详情</title>
+<link href="assets/css/fonts.css" rel="stylesheet"/>
+<link href="assets/css/common.css" rel="stylesheet"/>
+<script src="assets/vendor/tailwind.js"></script>
+<script src="assets/js/theme.js"></script>
+</head>
+<body class="bg-app-bg min-h-screen text-on-surface">
+<div data-shell="app" data-active="students"></div>
+
+<main class="md:ml-[260px] md:pt-16 pt-14 pb-24 md:pb-8 px-margin-mobile md:px-margin-desktop max-w-max-content-width mx-auto">
+  <!-- 面包屑 -->
+  <div class="flex items-center gap-1.5 py-4 text-label-md text-text-muted">
+    <a href="students.html" class="hover:text-primary transition-colors">学生列表</a>
+    <span class="material-symbols-outlined text-[16px]">chevron_right</span>
+    <span id="crumb-name" class="text-text-body">陈小明</span>
+  </div>
+
+  <!-- 学生资料头卡 -->
+  <div class="bg-card-white rounded-2xl shadow-level-1 border border-border-light p-6 mb-4 md:mb-6">
+    <div class="flex flex-col md:flex-row md:items-center gap-5">
+      <span class="avatar-initial w-16 h-16 rounded-full text-headline-md" data-initial="陈小明"></span>
+      <div class="flex-1 min-w-0">
+        <div class="flex flex-wrap items-center gap-2">
+          <h1 class="text-headline-md font-bold text-text-main">陈小明</h1>
+          <span class="text-label-sm px-2 py-0.5 rounded-full bg-primary-light text-primary">初二</span>
+          <span class="text-label-sm px-2 py-0.5 rounded-full bg-primary-light text-primary">北京四中</span>
+          <span class="text-label-sm px-2 py-0.5 rounded-full bg-primary-light text-primary">冲刺中考</span>
+        </div>
+        <p class="text-body-sm text-text-muted mt-1.5">默认科目：数学 · 每周二、四 19:00</p>
+      </div>
+      <div class="flex gap-3">
+        <a href="record.html" class="flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-primary hover:bg-primary-hover text-white text-body-sm font-medium shadow-fab transition-colors">
+          <span class="material-symbols-outlined text-[18px]">edit_note</span>记一笔
+        </a>
+        <a href="report-create.html" class="flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl border border-primary text-primary hover:bg-primary-light text-body-sm font-medium transition-colors">
+          <span class="material-symbols-outlined text-[18px]">description</span>生成报告
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid grid-cols-1 xl:grid-cols-12 gap-4 md:gap-6">
+    <!-- 左列（主区 8 列） -->
+    <div class="xl:col-span-8 space-y-4 md:space-y-6">
+      <!-- 统计卡 -->
+      <div class="grid grid-cols-3 gap-4">
+        <div class="bg-card-white rounded-2xl shadow-level-1 border border-border-light p-4 md:p-5">
+          <div class="text-label-sm text-text-muted">本月课时</div>
+          <div class="text-headline-md font-bold text-text-main mt-1">24<span class="text-body-sm font-normal text-text-muted ml-1">小时</span></div>
+          <div class="text-label-sm text-success-deep mt-1">↑ 15%</div>
+        </div>
+        <div class="bg-card-white rounded-2xl shadow-level-1 border border-border-light p-4 md:p-5">
+          <div class="text-label-sm text-text-muted">作业完成率</div>
+          <div class="text-headline-md font-bold text-text-main mt-1">95%</div>
+          <div class="text-label-sm text-success-deep mt-1">↑ 2%</div>
+        </div>
+        <div class="bg-card-white rounded-2xl shadow-level-1 border border-border-light p-4 md:p-5">
+          <div class="text-label-sm text-text-muted">当前重点</div>
+          <div class="text-title-md font-semibold text-text-main mt-1.5">应用题建模</div>
+          <div class="text-label-sm text-primary mt-1">持续跟踪中</div>
+        </div>
+      </div>
+
+      <!-- 成长趋势 -->
+      <div class="chart-wrap">
+        <div class="flex items-center justify-between">
+          <div class="chart-title">专注度趋势（近 7 天）</div>
+          <a href="stats.html" class="text-label-md text-primary hover:text-primary-hover">完整统计 ›</a>
+        </div>
+        <div id="trend-chart"></div>
+      </div>
+
+      <!-- 学习记录 -->
+      <div class="bg-card-white rounded-2xl shadow-level-1 border border-border-light">
+        <div class="px-6 pt-5 pb-3">
+          <h2 class="text-title-lg font-semibold text-text-main">学习记录</h2>
+        </div>
+        <div id="record-list" class="px-2 pb-2"></div>
+      </div>
+    </div>
+
+    <!-- 右列（4 列） -->
+    <div class="xl:col-span-4 space-y-4 md:space-y-6">
+      <div class="bg-card-white rounded-2xl shadow-level-1 border border-border-light p-5">
+        <h2 class="text-title-md font-semibold text-text-main mb-4">详细信息</h2>
+        <dl class="space-y-3 text-body-sm">
+          <div class="flex justify-between"><dt class="text-text-muted">年级</dt><dd class="text-text-body">初二</dd></div>
+          <div class="flex justify-between"><dt class="text-text-muted">学校</dt><dd class="text-text-body">北京四中</dd></div>
+          <div class="flex justify-between"><dt class="text-text-muted">累计记录</dt><dd class="text-text-body">24 条</dd></div>
+          <div class="flex justify-between"><dt class="text-text-muted">在读状态</dt><dd><span class="text-label-sm px-2 py-0.5 rounded-full bg-success-light text-success-deep">在读</span></dd></div>
+        </dl>
+        <button class="w-full mt-5 py-2.5 rounded-xl border border-border-light text-body-sm text-text-body hover:bg-app-bg transition-colors tap-highlight" data-demo="编辑学生信息">编辑信息</button>
+      </div>
+
+      <div class="bg-card-white rounded-2xl shadow-level-1 border border-border-light p-5">
+        <h2 class="text-title-md font-semibold text-text-main mb-4">需要跟进</h2>
+        <div class="space-y-2.5">
+          <label class="flex items-start gap-2.5 text-body-sm text-text-body cursor-pointer tap-highlight">
+            <input type="checkbox" class="mt-0.5 accent-primary" checked/>
+            <span>应用题建模练习（本周完成 3 组）</span>
+          </label>
+          <label class="flex items-start gap-2.5 text-body-sm text-text-body cursor-pointer tap-highlight">
+            <input type="checkbox" class="mt-0.5 accent-primary"/>
+            <span>错题本整理（一元二次方程章节）</span>
+          </label>
+          <label class="flex items-start gap-2.5 text-body-sm text-text-body cursor-pointer tap-highlight">
+            <input type="checkbox" class="mt-0.5 accent-primary"/>
+            <span>与家长沟通期中目标</span>
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<script src="assets/js/mock-data.js"></script>
+<script src="assets/js/common.js"></script>
+<script src="assets/js/page-student-detail.js"></script>
+</body>
+</html>

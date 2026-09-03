@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>EduManager - Record Session</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined[data-weight="fill"] {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "background": "#f9f9ff",
+                      "surface-container-lowest": "#ffffff",
+                      "surface": "#f9f9ff",
+                      "tertiary-container": "#b75b00",
+                      "tertiary": "#924700",
+                      "tertiary-fixed-dim": "#ffb786",
+                      "text-main": "#0F172A",
+                      "primary-fixed-dim": "#adc6ff",
+                      "on-secondary-fixed-variant": "#3c475a",
+                      "surface-bright": "#f9f9ff",
+                      "surface-container-high": "#e6e7f2",
+                      "secondary-fixed": "#d8e3fb",
+                      "surface-container-highest": "#e1e2ec",
+                      "periwinkle-subtle": "#EEF2F6",
+                      "inverse-surface": "#2e3038",
+                      "surface-container": "#ecedf7",
+                      "error-container": "#ffdad6",
+                      "on-tertiary-container": "#fffbff",
+                      "on-primary-fixed-variant": "#004395",
+                      "surface-variant": "#e1e2ec",
+                      "outline-variant": "#c2c6d6",
+                      "on-surface": "#191b23",
+                      "on-primary-container": "#fefcff",
+                      "on-surface-variant": "#424754",
+                      "secondary": "#545f73",
+                      "outline": "#727785",
+                      "on-tertiary-fixed-variant": "#723600",
+                      "on-secondary": "#ffffff",
+                      "app-bg": "#F8FAFC",
+                      "secondary-container": "#d5e0f8",
+                      "on-tertiary-fixed": "#311400",
+                      "primary-container": "#2170e4",
+                      "on-primary": "#ffffff",
+                      "error": "#ba1a1a",
+                      "on-secondary-fixed": "#111c2d",
+                      "surface-container-low": "#f2f3fd",
+                      "inverse-primary": "#adc6ff",
+                      "border-light": "#E2E8F0",
+                      "on-secondary-container": "#586377",
+                      "inverse-on-surface": "#eff0fa",
+                      "secondary-fixed-dim": "#bcc7de",
+                      "on-error-container": "#93000a",
+                      "on-background": "#191b23",
+                      "on-error": "#ffffff",
+                      "on-primary-fixed": "#001a42",
+                      "card-white": "#FFFFFF",
+                      "primary-fixed": "#d8e2ff",
+                      "surface-tint": "#005ac2",
+                      "text-muted": "#64748B",
+                      "surface-dim": "#d8d9e3",
+                      "tertiary-fixed": "#ffdcc6",
+                      "primary": "#0058be",
+                      "on-tertiary": "#ffffff"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "stack-md": "16px",
+                      "stack-lg": "24px",
+                      "sidebar-width": "260px",
+                      "max-content-width": "1440px",
+                      "stack-sm": "8px",
+                      "page-margin": "32px",
+                      "gutter": "24px"
+              },
+              "fontFamily": {
+                      "label-md": [
+                              "Inter"
+                      ],
+                      "headline-xl": [
+                              "Inter"
+                      ],
+                      "body-lg": [
+                              "Inter"
+                      ],
+                      "display-lg": [
+                              "Inter"
+                      ],
+                      "body-md": [
+                              "Inter"
+                      ],
+                      "label-lg": [
+                              "Inter"
+                      ],
+                      "body-sm": [
+                              "Inter"
+                      ],
+                      "headline-md": [
+                              "Inter"
+                      ],
+                      "headline-lg": [
+                              "Inter"
+                      ]
+              },
+              "fontSize": {
+                      "label-md": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "letterSpacing": "0.02em",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "headline-xl": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "display-lg": [
+                              "48px",
+                              {
+                                      "lineHeight": "56px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "label-lg": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "letterSpacing": "0.01em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-sm": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-md": [
+                              "20px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-lg": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "fontWeight": "600"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+      </script>
+</head>
+<body class="bg-app-bg text-on-surface font-body-md text-body-md h-screen overflow-hidden flex"><div class="fixed top-4 left-1/2 -translate-x-1/2 z-[100] animate-in slide-in-from-top duration-300">
+<div class="flex items-center gap-3 px-6 py-3 rounded-xl bg-[#D1E9CF] text-[#141E13] shadow-lg border border-[#B7D9B4]">
+<span class="material-symbols-outlined text-[#2D6A4F]" data-icon="check_circle">check_circle</span>
+<span class="font-label-lg text-label-lg">学习记录保存成功！</span>
+</div>
+</div>
+<!-- SideNavBar -->
+<nav class="bg-periwinkle-subtle dark:bg-surface-container-low font-label-lg text-label-lg fixed left-0 top-0 h-full w-[260px] border-r border-border-light dark:border-outline-variant flex flex-col py-stack-lg z-20">
+<div class="px-gutter mb-stack-lg flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-primary-container flex items-center justify-center text-on-primary-container">
+<span class="material-symbols-outlined" data-icon="school">school</span>
+</div>
+<div>
+<h1 class="font-headline-lg text-headline-lg text-primary dark:text-inverse-primary tracking-tight">学迹</h1>
+<p class="font-label-md text-label-md text-text-muted">教师端</p>
+</div>
+</div>
+<div class="px-gutter mb-stack-lg">
+<button class="w-full bg-primary text-on-primary py-2.5 px-4 rounded-lg font-label-lg text-label-lg flex items-center justify-center gap-2 hover:bg-opacity-90 transition-all duration-200 ease-in-out shadow-sm shadow-primary/20 bg-gradient-to-b from-white/10 to-transparent">
+<span class="material-symbols-outlined text-[20px]" data-icon="add">add</span>
+                记一笔
+            </button>
+</div>
+<ul class="flex-1 flex flex-col gap-1 px-4">
+<li>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-text-muted dark:text-on-surface-variant hover:bg-white/30 dark:hover:bg-surface-container-high transition-colors duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span>首页</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-primary dark:text-primary-fixed-dim font-bold border-r-4 border-primary dark:border-primary-fixed-dim bg-white/50 transition-colors duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined" data-icon="group" data-weight="fill">group</span>
+<span>学生</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-text-muted dark:text-on-surface-variant hover:bg-white/30 dark:hover:bg-surface-container-high transition-colors duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined" data-icon="bar_chart">bar_chart</span>
+<span>统计</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-text-muted dark:text-on-surface-variant hover:bg-white/30 dark:hover:bg-surface-container-high transition-colors duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined" data-icon="account_circle">account_circle</span>
+<span>我的资料</span>
+</a>
+</li>
+</ul>
+<div class="mt-auto px-4 border-t border-border-light pt-stack-md mx-4">
+<ul class="flex flex-col gap-1">
+<li>
+<a class="flex items-center gap-3 px-4 py-2 rounded-lg text-text-muted dark:text-on-surface-variant hover:bg-white/30 dark:hover:bg-surface-container-high transition-colors duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="settings">settings</span>
+<span>设置</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-2 rounded-lg text-text-muted dark:text-on-surface-variant hover:bg-white/30 dark:hover:bg-surface-container-high transition-colors duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="help">help</span>
+<span>帮助</span>
+</a>
+</li>
+</ul>
+</div>
+</nav>
+<!-- TopAppBar -->
+<header class="bg-card-white dark:bg-surface-container-lowest text-primary dark:text-primary-fixed-dim font-body-md text-body-md fixed top-0 right-0 w-[calc(100%-260px)] h-16 shadow-sm flex justify-between items-center px-page-margin ml-[260px] z-10">
+<div class="flex items-center flex-1 max-w-md">
+<div class="relative w-full">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-text-muted" data-icon="search">search</span>
+<input class="w-full pl-10 pr-4 py-2 bg-periwinkle-subtle rounded-lg border-none focus:ring-2 focus:ring-primary/20 text-body-sm font-body-sm outline-none transition-all placeholder:text-text-muted" placeholder="搜索学生、科目..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 text-text-muted hover:text-primary dark:hover:text-primary-fixed-dim transition-colors rounded-full hover:bg-periwinkle-subtle active:scale-95 transition-transform relative">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="absolute top-1 right-1 w-2 h-2 bg-error rounded-full"></span>
+</button>
+<button class="p-2 text-text-muted hover:text-primary dark:hover:text-primary-fixed-dim transition-colors rounded-full hover:bg-periwinkle-subtle active:scale-95 transition-transform">
+<span class="material-symbols-outlined" data-icon="calendar_today">calendar_today</span>
+</button>
+<div class="h-8 w-px bg-border-light mx-2"></div>
+<button class="bg-primary text-on-primary px-4 py-2 rounded-lg font-label-lg text-label-lg hover:bg-opacity-90 transition-all shadow-sm active:scale-95 transition-transform bg-gradient-to-b from-white/10 to-transparent">
+                记一笔
+            </button>
+<button class="ml-2 w-8 h-8 rounded-full overflow-hidden border border-border-light focus:ring-2 focus:ring-primary/20 outline-none">
+<img alt="Teacher Avatar" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBNzNpnxuzdlFWg2bAKuTYtwVAKGV3q9ySP3EhXJDbFMDbbBQkmMRZZ90iXq_6IQKS7h1Umyuox91UThCDBF9ziCpDfknHWuZTJt5oAJxfXuOEZWlfi1Kkj_VSi8qVG3bqjmiCUv_TJUvc3Zr7OMCU1JhWekA3RLnkK1cVXoC0tVc804l-anpwi_RUnRhncFh7gGCExj9M3HcgHIKPlQ3rjYMj1qBFV9n2oUEo4GSh-FaUBABwGyqU"/>
+</button>
+</div>
+</header>
+<!-- Main Content Area -->
+<main class="ml-[260px] mt-16 p-page-margin w-full overflow-y-auto max-w-[calc(1440px-260px)] mx-auto">
+<div class="mb-stack-lg flex items-end justify-between">
+<div>
+<nav aria-label="Breadcrumb" class="flex text-text-muted font-body-sm text-body-sm mb-2">
+<ol class="inline-flex items-center space-x-1 md:space-x-2">
+<li class="inline-flex items-center">
+<a class="hover:text-primary transition-colors" href="#">学生列表</a>
+</li>
+<li>
+<div class="flex items-center">
+<span class="material-symbols-outlined text-[16px] mx-1" data-icon="chevron_right">chevron_right</span>
+<a class="hover:text-primary transition-colors" href="#">陈小明</a>
+</div>
+</li>
+<li aria-current="page">
+<div class="flex items-center">
+<span class="material-symbols-outlined text-[16px] mx-1" data-icon="chevron_right">chevron_right</span>
+<span class="text-text-main font-label-md text-label-md">新记录</span>
+</div>
+</li>
+</ol>
+</nav>
+<h2 class="font-headline-xl text-headline-xl text-text-main">学习记录录入</h2>
+<p class="font-body-md text-body-md text-text-muted mt-1">Document today's progress and observations for Alex Chen.</p>
+</div>
+<div class="flex items-center gap-3">
+<span class="inline-flex items-center gap-1.5 py-1 px-2.5 rounded-md bg-secondary-fixed text-on-secondary-fixed font-label-md text-label-md">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+                    草稿已于2分钟前保存
+                </span>
+</div>
+</div>
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-gutter items-start pb-20">
+<!-- Left Column: Primary Details -->
+<div class="xl:col-span-8 flex flex-col gap-stack-lg">
+<!-- Core Info Card -->
+<div class="bg-card-white rounded-xl border border-border-light shadow-[0_4px_6px_-1px_rgb(0,0,0,0.05),0_2px_4px_-2px_rgb(0,0,0,0.05)] p-stack-lg">
+<h3 class="font-headline-md text-headline-md text-text-main mb-stack-md flex items-center gap-2 border-b border-border-light pb-3">
+<span class="material-symbols-outlined text-primary" data-icon="info">info</span>
+                        课程详情
+                    </h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-stack-md mb-stack-lg">
+<div>
+<label class="block font-label-md text-label-md text-on-surface-variant mb-1.5">日期</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-text-muted text-[20px]" data-icon="calendar_today">calendar_today</span>
+<input class="w-full pl-10 pr-3 py-2 bg-surface rounded-lg border border-border-light focus:border-primary focus:ring-2 focus:ring-primary/20 text-body-sm font-body-sm outline-none transition-all shadow-sm" type="date" value="2023-10-25"/>
+</div>
+</div>
+<div>
+<label class="block font-label-md text-label-md text-on-surface-variant mb-1.5">科目</label>
+<div class="relative">
+<select class="w-full pl-3 pr-10 py-2 bg-surface rounded-lg border border-border-light focus:border-primary focus:ring-2 focus:ring-primary/20 text-body-sm font-body-sm outline-none transition-all shadow-sm appearance-none">
+<option>Advanced Mathematics</option>
+<option>Physics</option>
+<option>Chemistry</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-text-muted pointer-events-none" data-icon="expand_more">expand_more</span>
+</div>
+</div>
+</div>
+<div class="mb-stack-md">
+<label class="block font-label-md text-label-md text-on-surface-variant mb-1.5">学习内容</label>
+<div class="border border-border-light rounded-lg overflow-hidden shadow-sm bg-surface">
+<div class="bg-card-white border-b border-border-light px-2 py-1.5 flex items-center gap-1">
+<button class="p-1.5 hover:bg-periwinkle-subtle rounded text-text-muted transition-colors"><span class="material-symbols-outlined text-[18px]" data-icon="format_bold">format_bold</span></button>
+<button class="p-1.5 hover:bg-periwinkle-subtle rounded text-text-muted transition-colors"><span class="material-symbols-outlined text-[18px]" data-icon="format_italic">format_italic</span></button>
+<button class="p-1.5 hover:bg-periwinkle-subtle rounded text-text-muted transition-colors"><span class="material-symbols-outlined text-[18px]" data-icon="format_list_bulleted">format_list_bulleted</span></button>
+<div class="w-px h-4 bg-border-light mx-1"></div>
+<button class="p-1.5 hover:bg-periwinkle-subtle rounded text-text-muted transition-colors"><span class="material-symbols-outlined text-[18px]" data-icon="attach_file">attach_file</span></button>
+</div>
+<textarea class="w-full p-3 border-none bg-transparent focus:ring-0 text-body-sm font-body-sm resize-none outline-none" placeholder="描述本次课程涵盖的内容..." rows="4"></textarea>
+</div>
+</div>
+</div>
+<!-- Knowledge & Mastery Card -->
+<div class="bg-card-white rounded-xl border border-border-light shadow-[0_4px_6px_-1px_rgb(0,0,0,0.05),0_2px_4px_-2px_rgb(0,0,0,0.05)] p-stack-lg">
+<div class="flex items-center justify-between border-b border-border-light pb-3 mb-stack-md">
+<h3 class="font-headline-md text-headline-md text-text-main flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary" data-icon="architecture">architecture</span>
+                            知识点掌握情况
+                        </h3>
+<button class="text-primary font-label-md text-label-md hover:underline flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]" data-icon="add_circle">add_circle</span> Add Point
+                        </button>
+</div>
+<div class="space-y-4">
+<!-- Item 1 -->
+<div class="p-4 rounded-lg bg-surface border border-border-light">
+<div class="flex justify-between items-center mb-2">
+<div class="font-label-lg text-label-lg text-text-main">微积分：极限</div>
+<div class="font-label-md text-label-md text-primary">80% 掌握度</div>
+</div>
+<div class="w-full bg-border-light rounded-full h-2 mb-3">
+<div class="bg-primary h-2 rounded-full" style="width: 80%"></div>
+</div>
+<div class="flex gap-2">
+<span class="px-2 py-1 bg-surface-container-high rounded text-text-muted font-body-sm text-[12px]">公式应用</span>
+<span class="px-2 py-1 bg-error-container text-on-error-container rounded font-body-sm text-[12px]">待复习: L'Hopital</span>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="p-4 rounded-lg bg-surface border border-border-light">
+<div class="flex justify-between items-center mb-2">
+<div class="font-label-lg text-label-lg text-text-main">导数：链式法则</div>
+<div class="font-label-md text-label-md text-tertiary">45% 掌握度</div>
+</div>
+<div class="w-full bg-border-light rounded-full h-2 mb-3">
+<div class="bg-tertiary h-2 rounded-full" style="width: 45%"></div>
+</div>
+<input class="w-full px-3 py-1.5 bg-card-white rounded border border-border-light focus:border-primary focus:ring-1 focus:ring-primary/20 text-body-sm font-body-sm outline-none transition-all shadow-sm text-[13px]" placeholder="添加具体备注..." type="text"/>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Performance & Tags -->
+<div class="xl:col-span-4 flex flex-col gap-stack-lg">
+<!-- Performance Metrics -->
+<div class="bg-card-white rounded-xl border border-border-light shadow-[0_4px_6px_-1px_rgb(0,0,0,0.05),0_2px_4px_-2px_rgb(0,0,0,0.05)] p-stack-lg">
+<div class="mb-stack-md">
+<label class="block font-label-md text-label-md text-on-surface-variant mb-2">专注度</label>
+<div class="flex gap-2">
+<button class="p-2 rounded-lg bg-tertiary-container/10 text-tertiary hover:bg-tertiary-container/20 transition-colors"><span class="material-symbols-outlined" data-icon="star" data-weight="fill">star</span></button>
+<button class="p-2 rounded-lg bg-tertiary-container/10 text-tertiary hover:bg-tertiary-container/20 transition-colors"><span class="material-symbols-outlined" data-icon="star" data-weight="fill">star</span></button>
+<button class="p-2 rounded-lg bg-tertiary-container/10 text-tertiary hover:bg-tertiary-container/20 transition-colors"><span class="material-symbols-outlined" data-icon="star" data-weight="fill">star</span></button>
+<button class="p-2 rounded-lg bg-tertiary-container/10 text-tertiary hover:bg-tertiary-container/20 transition-colors"><span class="material-symbols-outlined" data-icon="star" data-weight="fill">star</span></button>
+<button class="p-2 rounded-lg bg-surface text-outline hover:bg-surface-variant transition-colors"><span class="material-symbols-outlined" data-icon="star">star</span></button>
+</div>
+</div>
+<div class="mb-stack-md">
+<label class="block font-label-md text-label-md text-on-surface-variant mb-2">作业完成情况</label>
+<div class="inline-flex rounded-lg border border-border-light p-1 bg-surface w-full">
+<button class="flex-1 py-1.5 px-3 rounded-md bg-card-white shadow-sm font-label-md text-label-md text-text-main text-center">已完成</button>
+<button class="flex-1 py-1.5 px-3 rounded-md font-label-md text-label-md text-text-muted hover:text-text-main text-center transition-colors">部分完成</button>
+<button class="flex-1 py-1.5 px-3 rounded-md font-label-md text-label-md text-text-muted hover:text-text-main text-center transition-colors">未完成</button>
+</div>
+</div>
+<div>
+<label class="block font-label-md text-label-md text-on-surface-variant mb-2">课堂表现与标签</label>
+<div class="flex flex-wrap gap-2">
+<button class="px-3 py-1.5 rounded-full border-2 border-primary bg-primary/10 text-primary font-label-md text-label-md transition-colors flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" data-icon="done">done</span> 状态很好
+                             </button>
+<button class="px-3 py-1.5 rounded-full border border-border-light bg-surface text-text-muted hover:border-primary/50 font-label-md text-label-md transition-colors">
+                                 需要鼓励
+                             </button>
+<button class="px-3 py-1.5 rounded-full border border-border-light bg-surface text-text-muted hover:border-primary/50 font-label-md text-label-md transition-colors">
+                                 容易分心
+                             </button>
+<button class="px-3 py-1.5 rounded-full border border-border-light bg-surface text-text-muted hover:border-primary/50 font-label-md text-label-md transition-colors">
+                                 预习充分
+                             </button>
+</div>
+</div>
+</div>
+<!-- Teacher Comments -->
+<div class="bg-card-white rounded-xl border border-border-light shadow-[0_4px_6px_-1px_rgb(0,0,0,0.05),0_2px_4px_-2px_rgb(0,0,0,0.05)] p-stack-lg">
+<h3 class="font-headline-md text-headline-md text-text-main mb-stack-md flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary" data-icon="comment">comment</span>
+                        内部评语
+                    </h3>
+<p class="font-body-sm text-body-sm text-text-muted mb-3">仅老师和管理员可见</p>
+<textarea class="w-full p-3 bg-surface rounded-lg border border-border-light focus:border-primary focus:ring-2 focus:ring-primary/20 text-body-sm font-body-sm resize-none outline-none shadow-sm" placeholder="下次课的备忘录..." rows="4"></textarea>
+</div>
+</div>
+</div>
+<!-- Sticky Footer Action Bar -->
+<div class="fixed bottom-0 right-0 w-[calc(100%-260px)] bg-card-white/90 backdrop-blur-sm border-t border-border-light p-4 flex justify-end gap-3 z-10 shadow-[0_-4px_6px_-1px_rgb(0,0,0,0.05)]">
+<button class="px-6 py-2 rounded-lg border border-border-light text-primary font-label-lg text-label-lg hover:bg-periwinkle-subtle transition-colors">
+                存为草稿
+            </button>
+<button class="px-6 py-2 rounded-lg bg-primary text-on-primary font-label-lg text-label-lg hover:bg-opacity-90 transition-all shadow-sm bg-gradient-to-b from-white/10 to-transparent flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]" data-icon="save">save</span> 保存记录
+            </button>
+</div>
+</main>
+</body></html>

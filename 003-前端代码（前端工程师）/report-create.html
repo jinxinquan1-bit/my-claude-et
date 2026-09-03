@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<title>学迹 · 生成报告</title>
+<link href="assets/css/fonts.css" rel="stylesheet"/>
+<link href="assets/css/common.css" rel="stylesheet"/>
+<script src="assets/vendor/tailwind.js"></script>
+<script src="assets/js/theme.js"></script>
+</head>
+<body class="bg-app-bg min-h-screen text-on-surface">
+<div data-shell="app" data-active="me"></div>
+
+<main class="md:ml-[260px] md:pt-16 pt-14 pb-24 md:pb-8 px-margin-mobile md:px-margin-desktop max-w-max-content-width mx-auto">
+  <h1 class="text-headline-xl font-bold text-text-heading py-6 md:py-8">生成学习报告</h1>
+
+  <div class="grid grid-cols-1 xl:grid-cols-12 gap-4 md:gap-6">
+    <!-- 表单 -->
+    <div class="xl:col-span-8 bg-card-white rounded-2xl shadow-level-1 border border-border-light p-6">
+      <div class="space-y-5">
+        <div>
+          <label class="block text-label-md text-text-muted mb-1.5" for="sel-student">选择学生 *</label>
+          <select id="sel-student" class="w-full max-w-xs px-3.5 py-2.5 rounded-xl border border-border-light text-input-text focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-shadow"></select>
+        </div>
+        <div>
+          <label class="block text-label-md text-text-muted mb-1.5">时间范围</label>
+          <div class="inline-flex gap-2 rounded-xl border border-border-light bg-app-bg p-1" id="period-seg">
+            <button type="button" data-v="week" class="seg-btn on px-4 py-1.5 rounded-lg text-body-sm transition-colors">本周</button>
+            <button type="button" data-v="month" class="seg-btn px-4 py-1.5 rounded-lg text-body-sm transition-colors">本月</button>
+            <button type="button" data-v="custom" class="seg-btn px-4 py-1.5 rounded-lg text-body-sm transition-colors">自定义</button>
+          </div>
+          <div id="custom-range" class="hidden flex items-center gap-2 mt-3 max-w-sm">
+            <input type="date" value="2026-08-25" class="flex-1 px-3 py-2 rounded-xl border border-border-light text-input-text focus:border-primary outline-none"/>
+            <span class="text-text-muted">至</span>
+            <input type="date" value="2026-08-31" class="flex-1 px-3 py-2 rounded-xl border border-border-light text-input-text focus:border-primary outline-none"/>
+          </div>
+        </div>
+        <div>
+          <label class="block text-label-md text-text-muted mb-1.5" for="message">老师寄语（会展示给家长）</label>
+          <textarea id="message" rows="3" placeholder="如：本周孩子状态不错，作业完成认真，应用题还需加强练习"
+                    class="w-full px-3.5 py-3 rounded-xl border border-border-light text-input-text placeholder:text-text-placeholder focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none resize-y transition-shadow"></textarea>
+        </div>
+        <button id="btn-create" class="flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-primary hover:bg-primary-hover text-white text-body-md font-medium shadow-fab transition-colors tap-highlight">
+          <span class="material-symbols-outlined text-[20px]">description</span>生成报告并获取分享链接
+        </button>
+      </div>
+
+      <!-- 生成结果 -->
+      <div id="result" class="hidden mt-6 rounded-2xl border border-primary-border bg-primary-light p-5">
+        <div class="flex items-center justify-between mb-3">
+          <span class="text-title-md font-semibold text-text-main">报告已生成 ✓</span>
+          <span class="text-label-sm text-text-muted">链接 7 天内有效</span>
+        </div>
+        <div class="rounded-xl border border-dashed border-primary-border bg-white p-3 text-body-sm text-primary-deep break-all" id="share-link">
+          http://localhost:3000/report-share.html
+        </div>
+        <div class="flex gap-3 mt-4">
+          <button id="btn-copy" class="flex-1 flex items-center justify-center gap-2 py-2.5 rounded-xl bg-primary hover:bg-primary-hover text-white text-body-sm font-medium transition-colors tap-highlight">
+            <span class="material-symbols-outlined text-[18px]">content_copy</span>复制链接
+          </button>
+          <a href="report-share.html" class="flex-1 flex items-center justify-center gap-2 py-2.5 rounded-xl border border-primary text-primary hover:bg-white text-body-sm font-medium transition-colors">
+            <span class="material-symbols-outlined text-[18px]">visibility</span>预览报告
+          </a>
+        </div>
+        <div class="flex justify-between items-center mt-3">
+          <p class="text-label-sm text-text-muted">💡 把链接粘贴到微信发给家长，免登录即可查看</p>
+          <a href="reports.html" class="text-label-md text-primary hover:text-primary-hover whitespace-nowrap">去报告管理 ›</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 说明卡 -->
+    <div class="xl:col-span-4 space-y-4">
+      <div class="bg-card-white rounded-2xl shadow-level-1 border border-border-light p-5">
+        <h2 class="text-title-md font-semibold text-text-main mb-3">报告包含</h2>
+        <ul class="space-y-2.5 text-body-sm text-text-body">
+          <li class="flex items-center gap-2"><span class="material-symbols-outlined text-[18px] text-primary">task_alt</span>学习概览（上课次数）</li>
+          <li class="flex items-center gap-2"><span class="material-symbols-outlined text-[18px] text-primary">task_alt</span>作业完成统计</li>
+          <li class="flex items-center gap-2"><span class="material-symbols-outlined text-[18px] text-primary">task_alt</span>专注度趋势</li>
+          <li class="flex items-center gap-2"><span class="material-symbols-outlined text-[18px] text-primary">task_alt</span>知识点掌握列表</li>
+          <li class="flex items-center gap-2"><span class="material-symbols-outlined text-[18px] text-primary">task_alt</span>老师寄语</li>
+        </ul>
+        <p class="text-label-sm text-text-muted mt-4 pt-3 border-t border-border-light">报告为数据快照，之后修改记录不影响已发出的报告。</p>
+      </div>
+    </div>
+  </div>
+</main>
+
+<script src="assets/js/mock-data.js"></script>
+<script src="assets/js/common.js"></script>
+<script src="assets/js/page-report-create.js"></script>
+</body>
+</html>
