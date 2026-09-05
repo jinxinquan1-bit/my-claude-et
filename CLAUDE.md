@@ -9,7 +9,8 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - `001-产品PRD/学生学习管理产品PRD-V1.0.1.md` — 产品需求文档**最新版本**（V1.0.1 起注册登录为用户名+密码）。功能与视觉（第 6 章配色规范）的唯一权威来源，需求变更先改这里；`学生学习管理产品PRD.md` 为 V1.0 历史版本
 - `xueji-web/` — V1.0 实现（Web 端，Mobile-first，后续规划小程序/App）
 - `002-UI界面（美术设计）/` — stitch 原始设计稿（UI原型 + DESIGN.md 设计规范）
-- `003-前端代码（前端工程师）/` — 纯前端原型（多页静态站，11 页，无构建双击可预览；Tailwind 已本地化；主题统一在 `assets/js/theme.js`，壳注入在 `assets/js/common.js`，演示数据在 `assets/js/mock-data.js`；详见其 README.md 的页面统一模板）
+- `003-前端代码（前端工程师）/` — 前端工程师交付区：`frontend/` 纯前端原型（多页静态站，11 页，无构建双击可预览；Tailwind 已本地化；主题统一在 `frontend/assets/js/theme.js`，壳注入在 `frontend/assets/js/common.js`，演示数据在 `frontend/assets/js/mock-data.js`；详见其 README.md 的页面统一模板）；`backend/` Express 后端（Node ≥22 + mysql2 + bcryptjs，端口 3001，已实现登录/注册/登出/me，对接 MySQL 8.4 xueji 库；`.env` 配置数据库连接，测试脚本 e2e-auth-test.js）
+- `004-数据库脚本(数据库管理员DBA)/` — MySQL 建库建表脚本（学迹数据库脚本.sql，6 张表 utf8mb4；本机 Docker MySQL 8.4 容器 `mysql`，端口 3307，root/root；⚠️ 本机另有 Windows 原生 MySQL 5.7 服务占用 3306）
 
 ## 常用命令
 

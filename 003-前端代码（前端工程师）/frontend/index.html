@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<title>学迹 · 登录（测试）</title>
+<link href="assets/css/fonts.css" rel="stylesheet"/>
+<link href="assets/css/common.css" rel="stylesheet"/>
+<script src="assets/vendor/tailwind.js"></script>
+<script src="assets/js/theme.js"></script>
+</head>
+<body class="bg-gradient-custom flex flex-col min-h-screen text-on-surface">
+<!-- 登录/注册为事务性页面：不注入共享壳（无顶栏/底栏） -->
+
+<main class="flex-grow flex flex-col justify-center items-center px-margin-mobile py-loose relative">
+  <!-- 背景装饰 -->
+  <div class="absolute top-10 right-[-10%] w-64 h-64 bg-primary/10 rounded-full blur-3xl z-0 pointer-events-none"></div>
+  <div class="absolute bottom-20 left-[-10%] w-72 h-72 bg-tertiary-container/15 rounded-full blur-3xl z-0 pointer-events-none"></div>
+
+  <!-- 品牌区 -->
+  <div class="mb-8 flex flex-col items-center z-10">
+    <div class="w-20 h-20 bg-gradient-to-br from-primary to-primary-deep text-on-primary rounded-2xl flex items-center justify-center mb-4 shadow-lg shadow-primary/30">
+      <span class="material-symbols-outlined text-5xl fill">school</span>
+    </div>
+    <h1 class="text-3xl font-bold text-text-heading tracking-tight">学迹</h1>
+    <p class="text-base text-text-secondary mt-2 tracking-wide">记录每一次进步</p>
+  </div>
+
+  <!-- 登录/注册卡片 -->
+  <div class="glass-card w-full max-w-sm rounded-2xl p-6 md:p-8">
+    <form id="auth-form" class="space-y-5" novalidate>
+      <div>
+        <label class="block text-sm font-semibold text-text-heading mb-2" for="username">用户名</label>
+        <div class="relative">
+          <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none">
+            <span class="material-symbols-outlined text-text-placeholder text-xl">person</span>
+          </div>
+          <input class="block w-full pl-11 pr-4 py-3 border border-border-standard rounded-xl text-input-text text-on-surface placeholder-text-placeholder focus:border-primary focus:ring-4 focus:ring-primary/15 transition-all outline-none"
+                 id="username" name="username" placeholder="2~20 位中文、英文、数字或下划线" autocomplete="username" type="text"/>
+        </div>
+      </div>
+      <div>
+        <div class="flex justify-between items-center mb-2">
+          <label class="block text-sm font-semibold text-text-heading" for="password">密码</label>
+          <button type="button" class="text-sm font-medium text-primary hover:text-primary-hover transition-colors" id="forgot">忘记密码？</button>
+        </div>
+        <div class="relative">
+          <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none">
+            <span class="material-symbols-outlined text-text-placeholder text-xl">lock</span>
+          </div>
+          <input class="block w-full pl-11 pr-11 py-3 border border-border-standard rounded-xl text-input-text text-on-surface placeholder-text-placeholder focus:border-primary focus:ring-4 focus:ring-primary/15 transition-all outline-none"
+                 id="password" name="password" placeholder="至少 6 位" autocomplete="current-password" type="password"/>
+          <div class="absolute inset-y-0 right-0 pr-3.5 flex items-center cursor-pointer text-text-placeholder hover:text-text-body transition-colors" id="toggle-pwd">
+            <span class="material-symbols-outlined text-xl">visibility_off</span>
+          </div>
+        </div>
+      </div>
+      <!-- 注册模式：确认密码 -->
+      <div id="register-only" class="hidden">
+        <label class="block text-sm font-semibold text-text-heading mb-2" for="password2">确认密码</label>
+        <div class="relative">
+          <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none">
+            <span class="material-symbols-outlined text-text-placeholder text-xl">lock</span>
+          </div>
+          <input class="block w-full pl-11 pr-4 py-3 border border-border-standard rounded-xl text-input-text text-on-surface placeholder-text-placeholder focus:border-primary focus:ring-4 focus:ring-primary/15 transition-all outline-none"
+                 id="password2" name="password2" placeholder="再次输入密码" type="password"/>
+        </div>
+      </div>
+      <button class="w-full flex justify-center items-center py-3.5 px-4 border border-transparent rounded-xl shadow-md shadow-primary/20 text-on-primary bg-primary hover:bg-primary-hover font-semibold text-lg transition-all duration-200 active:scale-[0.98] mt-8"
+              id="submit" type="submit">登录</button>
+    </form>
+    <div class="mt-8 text-center border-t border-border-standard/50 pt-6">
+      <p class="text-body-md text-text-secondary">
+        <span id="switch-tip">还没有账号？</span>
+        <a class="font-semibold text-primary hover:text-primary-hover transition-colors ml-1 cursor-pointer" id="switch-mode">立即注册</a>
+      </p>
+    </div>
+  </div>
+</main>
+
+<script src="assets/js/api.js"></script>
+<script src="assets/js/common.js"></script>
+<script src="assets/js/page-login.js"></script>
+</body>
+</html>

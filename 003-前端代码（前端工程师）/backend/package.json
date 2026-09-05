@@ -1,0 +1,18 @@
+{
+  "name": "xueji-backend",
+  "version": "1.0.1",
+  "description": "学迹后端（Express + MySQL 8.4）——登录/注册模块",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node --env-file-if-exists=.env src/server.js"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "dependencies": {
+    "bcryptjs": "^3.0.2",
+    "cors": "^2.8.5",
+    "express": "^4.21.2",
+    "mysql2": "^3.11.0"
+  }
+}

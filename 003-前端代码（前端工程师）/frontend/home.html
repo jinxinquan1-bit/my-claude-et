@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<title>学迹 · 首页</title>
+<link href="assets/css/fonts.css" rel="stylesheet"/>
+<link href="assets/css/common.css" rel="stylesheet"/>
+<script src="assets/vendor/tailwind.js"></script>
+<script src="assets/js/theme.js"></script>
+</head>
+<body class="bg-app-bg min-h-screen text-on-surface">
+<div data-shell="app" data-active="home"></div>
+
+<main class="md:ml-[260px] md:pt-16 pt-14 pb-24 md:pb-8 px-margin-mobile md:px-margin-desktop max-w-max-content-width mx-auto">
+  <!-- Hero 问候 -->
+  <div class="py-6 md:py-8">
+    <h1 class="text-headline-xl font-bold text-text-main">早上好，<span id="user-name">王老师</span></h1>
+    <p class="text-body-md text-text-muted mt-2" id="today-line">今天也要记录哦 · 有 5 位学生待记录</p>
+  </div>
+
+  <div class="grid grid-cols-1 xl:grid-cols-12 gap-4 md:gap-6">
+    <!-- 左列（主区 9 列） -->
+    <div class="xl:col-span-9 space-y-4 md:space-y-6">
+      <!-- 统计卡 -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+        <div class="relative bg-card-white rounded-2xl p-6 md:p-8 shadow-level-1 border border-border-light overflow-hidden hover:shadow-level-2 transition-shadow">
+          <div class="absolute -top-6 -right-6 w-24 h-24 bg-primary/10 rounded-full blur-2xl pointer-events-none"></div>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl bg-primary-light text-primary flex items-center justify-center">
+              <span class="material-symbols-outlined">event_available</span>
+            </div>
+            <span class="text-label-md text-text-muted">今日待记录</span>
+          </div>
+          <div class="mt-4 text-display-lg font-bold text-text-main" id="stat-pending">5<span class="text-body-lg text-text-muted font-normal ml-1">节课</span></div>
+        </div>
+        <div class="relative bg-card-white rounded-2xl p-6 md:p-8 shadow-level-1 border border-border-light overflow-hidden hover:shadow-level-2 transition-shadow">
+          <div class="absolute -top-6 -right-6 w-24 h-24 bg-success/10 rounded-full blur-2xl pointer-events-none"></div>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl bg-success-light text-success-deep flex items-center justify-center">
+              <span class="material-symbols-outlined">task_alt</span>
+            </div>
+            <span class="text-label-md text-text-muted">本周累计</span>
+          </div>
+          <div class="mt-4 text-display-lg font-bold text-text-main" id="stat-week">24<span class="text-body-lg text-text-muted font-normal ml-1">已完成</span></div>
+        </div>
+      </div>
+
+      <!-- 待记录名单 -->
+      <div class="bg-card-white rounded-2xl shadow-level-1 border border-border-light">
+        <div class="flex items-center justify-between px-6 pt-5 pb-3">
+          <h2 class="text-title-lg font-semibold text-text-main">待记录名单</h2>
+          <a href="students.html" class="text-label-md text-primary hover:text-primary-hover">查看全部 ›</a>
+        </div>
+        <div id="pending-list" class="px-2 pb-2"></div>
+      </div>
+
+      <!-- 本周活跃（纯 CSS 柱状图） -->
+      <div class="bg-card-white rounded-2xl shadow-level-1 border border-border-light p-6">
+        <div class="flex items-center justify-between mb-4">
+          <h2 class="text-title-lg font-semibold text-text-main">本周活跃</h2>
+          <a href="stats.html" class="text-label-md text-primary hover:text-primary-hover">详细统计 ›</a>
+        </div>
+        <div id="week-chart" class="flex items-end justify-between gap-2 h-40 md:h-48"></div>
+        <div class="flex justify-between mt-2 text-label-sm text-text-placeholder">
+          <span>周一</span><span>周二</span><span>周三</span><span>周四</span><span>周五</span><span>周六</span><span>周日</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 右列（快捷操作 3 列） -->
+    <div class="xl:col-span-3 space-y-4 md:space-y-6">
+      <div class="bg-card-white rounded-2xl shadow-level-1 border border-border-light p-5">
+        <h2 class="text-title-md font-semibold text-text-main mb-4">快捷操作</h2>
+        <a href="record.html" class="flex items-center justify-center gap-2 rounded-xl bg-primary hover:bg-primary-hover text-white font-medium text-body-md py-3.5 shadow-fab transition-colors">
+          <span class="material-symbols-outlined text-[20px]">edit_note</span>学情数据记录
+        </a>
+        <div class="mt-3 space-y-1">
+          <a href="students.html" class="flex items-center gap-3 px-3 py-3 rounded-xl text-text-body hover:bg-primary-light/50 transition-colors">
+            <span class="material-symbols-outlined text-primary">group</span>
+            <span class="text-body-md">学生列表</span>
+          </a>
+          <a href="reports.html" class="flex items-center gap-3 px-3 py-3 rounded-xl text-text-body hover:bg-primary-light/50 transition-colors">
+            <span class="material-symbols-outlined text-primary">description</span>
+            <span class="text-body-md">近期报告</span>
+          </a>
+          <a href="stats.html" class="flex items-center gap-3 px-3 py-3 rounded-xl text-text-body hover:bg-primary-light/50 transition-colors">
+            <span class="material-symbols-outlined text-primary">monitoring</span>
+            <span class="text-body-md">数据统计</span>
+          </a>
+        </div>
+      </div>
+      <div class="bg-primary-light/60 border border-primary-border rounded-2xl p-5">
+        <div class="flex items-start gap-3">
+          <span class="material-symbols-outlined text-primary mt-0.5">lightbulb</span>
+          <p class="text-body-sm text-on-primary-fixed-variant">30 秒完成一次记录，自动沉淀为成长档案；每周生成报告，家长在微信里就能看到。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<script src="assets/js/mock-data.js"></script>
+<script src="assets/js/api.js"></script>
+<script src="assets/js/common.js"></script>
+<script src="assets/js/page-home.js"></script>
+</body>
+</html>
